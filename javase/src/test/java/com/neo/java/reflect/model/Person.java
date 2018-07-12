@@ -1,10 +1,11 @@
 package com.neo.java.reflect.model;
 
-import java.io.InputStream;
 import java.util.List;
 
 public class Person {
-    public String name = "Jacky";
+    public String     name     = "Jacky";
+    private int       age      = 1;
+    public static int password = 12345;
 
     /******************** 构造函数 ************************/
     public Person() {
