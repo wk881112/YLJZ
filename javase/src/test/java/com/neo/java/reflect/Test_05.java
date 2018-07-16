@@ -13,28 +13,15 @@ import com.neo.java.reflect.model.Person;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * java.lang.reflect
+ * javaBean
  *
- * https://docs.oracle.com/javase/tutorial/reflect/index.html
+ * http://www.cnblogs.com/pony1223/p/7450837.html
  */
 @Slf4j
 public class Test_05 {
 
-    /**
-     * 使用jdkProxy代理
-     * */
     @Test
     public void test01() {
-
-        HelloImpl hello = new HelloImpl();
-        MyInvocationHandlerImpl handler = new MyInvocationHandlerImpl(hello);
-
-        // 构造代码实例
-        Hello proxyHello = (Hello) Proxy.newProxyInstance(hello.getClass().getClassLoader(),
-            hello.getClass().getInterfaces(), handler);
-
-        // 调用代理方法
-        proxyHello.sayHello();
     }
 
 }
