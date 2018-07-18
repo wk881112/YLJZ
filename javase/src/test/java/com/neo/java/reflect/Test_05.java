@@ -1,14 +1,9 @@
 package com.neo.java.reflect;
 
-import java.lang.reflect.Proxy;
-
-import org.junit.Before;
+import com.google.gson.Gson;
+import com.neo.java.reflect.model.*;
+import org.junit.After;
 import org.junit.Test;
-
-import com.neo.java.reflect.model.Hello;
-import com.neo.java.reflect.model.HelloImpl;
-import com.neo.java.reflect.model.MyInvocationHandlerImpl;
-import com.neo.java.reflect.model.Person;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,8 +15,31 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Test_05 {
 
+    UserInfo userInfo = new UserInfo();
+
     @Test
-    public void test01() {
+    public void test01() throws Exception {
+
+        try {
+            BeanInfoUtil.getProperty(userInfo, "userName");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void test02() throws Exception {
+
+        BeanInfoUtil.setPropertyByIntrospector(userInfo, "userName");
+
+
+    }
+
+
+    @After
+    public void afterTest() {
+        log.info("{}", userInfo);
     }
 
 }
