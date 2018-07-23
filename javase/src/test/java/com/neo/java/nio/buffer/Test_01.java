@@ -18,6 +18,10 @@ import java.util.Properties;
  * limit: 限制是第一个不能读取或写入的元素的索引，不能为负，不能大于容量。 实际上是标定写入的容量的
  * position: 位置是下一个要读取或写入的元素的索引，不能为负，不能大于容量
  *
+ * http://www.cnblogs.com/pony1223/p/8179804.html buffer channel
+ *
+ * http://www.cnblogs.com/pony1223/p/8138233.html  IO/NIO主要区别
+ *
  */
 @Slf4j
 public class Test_01 {
