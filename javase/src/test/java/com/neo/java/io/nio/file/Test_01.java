@@ -1,10 +1,12 @@
 package com.neo.java.io.nio.file;
 
+import static java.nio.file.StandardCopyOption.ATOMIC_MOVE;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 
 import org.junit.After;
 import org.junit.Before;
@@ -34,25 +36,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Test_01 {
 
+    String       directory = "C:\\Users\\WANGKUN";
+    String       fileName  = "status.txt";
+
     private Path path;
 
     @Before
     public void bef() {
-        path = Paths.get(directory);
+        path = Paths.get(directory, fileName);
     }
 
     @After
     public void aft() {
-        Calendar cal = Calendar.getInstance();
-//        cal.add(Calendar.MINUTE, 5);
-        TimeZone timeZone = cal.getTimeZone();
-        System.getProperty("");
-        System.out.println(cal.getTime());
-        System.out.println(timeZone);
     }
-
-    String directory = "C:\\Users\\WANGKUN";
-    String fileName  = "status.txt";
 
     /**
      * create path in bef
@@ -81,6 +77,17 @@ public class Test_01 {
         // 当resolve使用绝对路径时。则返回绝对路径的path
         resolve = Paths.get("hhh").resolve(directory);
         System.out.format("%s%n", resolve);
+    }
+
+    /**
+     * Files Files类是另一主要入口点java.nio.file包。该类提供了一组丰富的静态方法，用于读取，写入和操作文件和目录
+     */
+    @Test
+    public void test03() throws IOException {
+        Path target = Paths.get(directory, "status-copy.txt");
+        Path move = Files.copy(path, target, REPLACE_EXISTING, ATOMIC_MOVE);
+
+        System.out.println(move.toString());
     }
 
 }
