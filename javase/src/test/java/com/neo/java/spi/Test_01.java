@@ -20,6 +20,12 @@ import java.util.ServiceLoader;
 
 
  https://www.cnblogs.com/happyframework/archive/2013/09/17/3325560.html
+
+ https://www.aliyun.com/jiaocheng/565216.html?spm=5176.100033.1.9.VRb90C
+
+ API 就是提供完成某些功能的类、接口或方法。 直接调用就能完成任务
+ SPI 是指提供给你继承、扩展完成某些特定功能的类、接口或方法。 使用api时，需要指定api的实现，例如指定mysql驱动包：com.mysql.jdbc.Driver。
+    service provider interface
  */
 public class Test_01 {
 
