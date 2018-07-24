@@ -1,6 +1,7 @@
 package com.neo.java.io.bio;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.Date;
 
 import org.junit.After;
@@ -63,6 +64,7 @@ public class Test_01 {
 
             log.info(directory.getPath());
             log.info(directory.getAbsolutePath());
+            Path path = directory.toPath();
 
         } catch (Exception e) {
             log.error("", e);
