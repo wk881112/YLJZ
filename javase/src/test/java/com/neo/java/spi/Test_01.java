@@ -38,9 +38,9 @@ public class Test_01 {
 
         Iterator<Search> iterator = load.iterator();
 
-        while (iterator.hasNext()) {
-            Search next = iterator.next();
-            next.searchDoc("man");
-        }
+//        while (iterator.hasNext()) {
+//            Search next = iterator.next();
+////            next.searchDoc("man");
+//        }
     }
 }
