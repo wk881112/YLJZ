@@ -66,11 +66,13 @@ public class Test_02 {
         try {
             Date now1 = new Date();
             bufferedReader = new BufferedReader(new FileReader(path));
+            BufferedReader bufferedReader1 = new BufferedReader(bufferedReader);
+
             bufferedWriter = new BufferedWriter(new FileWriter(outFileName));
 
             String l;
 
-            while ((l = bufferedReader.readLine()) != null) {
+            while ((l = bufferedReader1.readLine()) != null) {
                 bufferedWriter.write(l);
             }
 
