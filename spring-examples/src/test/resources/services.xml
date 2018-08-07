@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="daos.xml"/>
+
+    <!-- services -->
+    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.UserService">
+        <property name="demoStr" value="abc"/>
+    </bean>
+
+    <bean id="petStore" class="com.neo.springexamples.ioc.pojo.PetStoreServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+        <property name="itemDao" ref="itemDao"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for services go here -->
+</beans>
