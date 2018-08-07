@@ -6,11 +6,20 @@ public class UserService {
         return demoStr;
     }
 
+    //    @Required
     public void setDemoStr(String demoStr) {
         this.demoStr = demoStr;
     }
 
     private String demoStr;
 
-    public void saveUser() {}
+    public void saveUser() {
+    }
+
+    public UserService() {
+    }
+
+    public UserService(String demoStr) {
+        this.demoStr = demoStr;
+    }
 }

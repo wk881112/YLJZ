@@ -7,7 +7,10 @@
 
     <!-- services -->
     <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.UserService">
-        <property name="demoStr" value="abc"/>
+        <!-- 通过属性设置 -->
+        <!--<property name="demoStr" value="abc"/>-->
+        <!-- 通过有参数构造创建，基础类型使用value, 引用类型使用ref -->
+        <constructor-arg index="0" name="demoStr" value="abc"></constructor-arg>
     </bean>
 
     <bean id="petStore" class="com.neo.springexamples.ioc.pojo.PetStoreServiceImpl">

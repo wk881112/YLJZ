@@ -14,6 +14,8 @@ public class ContainerTests {
 
     /**
      * only基于spring-beans命名空间 XML形式的 beanDefinition
+     *
+     * 构造器方式，需要一个空参构造
      */
     @Test
     public void test01() {
