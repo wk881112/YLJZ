@@ -22,5 +22,18 @@
         <property name="itemDao" ref="itemDao"/>
     </bean>
 
-    <!-- more bean definitions for services go here -->
+    <bean id="inheritedTestBean" abstract="true"
+          class="com.neo.springexamples.ioc.pojo.ParentDemo">
+        <property name="name" value="parent"/>
+        <property name="age" value="1"/>
+    </bean>
+
+    <bean id="inheritsWithDifferentClass"
+          class="com.neo.springexamples.ioc.pojo.ChildDemo"
+          parent="inheritedTestBean" init-method="init"
+    lazy-init="false">
+        <!--<property name="name" value="override"/>-->
+        <!-- the age property value of 1 will be inherited from parent -->
+    </bean>
+
 </beans>

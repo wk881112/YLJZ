@@ -1,16 +1,13 @@
 package com.neo.springexamples.ioc;
 
-import com.neo.springexamples.ioc.pojo.JpaItemDao;
+import com.google.gson.Gson;
+import com.neo.springexamples.ioc.pojo.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
-
-import com.neo.springexamples.ioc.pojo.JpaAccountDao;
-import com.neo.springexamples.ioc.pojo.PetStoreServiceImpl;
-import com.neo.springexamples.ioc.pojo.UserService;
 
 public class ContainerTests {
 
@@ -73,6 +70,20 @@ public class ContainerTests {
         ApplicationContext context = new ClassPathXmlApplicationContext("services.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.testApplicationContext();
+    }
+
+    @Test
+    public void test06() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("services.xml");
+        ChildDemo child = context.getBean("inheritsWithDifferentClass", ChildDemo.class);
+        System.out.println(new Gson().toJson(child));
+    }
+
+    @Test
+    public void test07() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("processor.xml");
+        UserService messenger = (UserService) ctx.getBean("userService");
+        System.out.println(messenger);
     }
 
 }

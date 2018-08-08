@@ -39,4 +39,9 @@ public class UserService {
         System.out.println(this.getClass().getName() + " destroyed");
     }
 
+
+    public void init() {
+        System.out.println("UserService init...");
+    }
+
 }
