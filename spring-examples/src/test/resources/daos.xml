@@ -7,8 +7,12 @@
           class="com.neo.springexamples.ioc.pojo.JpaAccountDao">
         <!-- additional collaborators and configuration for this bean go here -->
     </bean>
+    <bean id="accountDaoPrimary"
+          class="com.neo.springexamples.ioc.pojo.JpaAccountDao" primary="true">
+        <!-- 使用primary属性，则byName自动注入时，使用该类-->
+    </bean>
 
-    <bean id="itemDao" class="com.neo.springexamples.ioc.pojo.JpaItemDao">
+    <bean id="itemDao" class="com.neo.springexamples.ioc.pojo.JpaItemDao" autowire-candidate="false">
         <!-- additional collaborators and configuration for this bean go here -->
     </bean>
 </beans>

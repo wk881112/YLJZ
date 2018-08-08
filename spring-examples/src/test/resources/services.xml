@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd" default-destroy-method="destroy">
 
     <import resource="daos.xml"/>
 
     <!-- services -->
-    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.UserService">
-        <!-- 通过属性设置 -->
-        <!--<property name="demoStr" value="abc"/>-->
-        <!-- 通过有参数构造创建，基础类型使用value, 引用类型使用ref -->
-        <constructor-arg index="0" name="demoStr" value="abc"></constructor-arg>
+    <!-- 使用property -->
+    <!--    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.UserService">
+            <property name="demoStr" value="abc"/>
+        </bean>-->
+    <!-- 使用p-namespace -->
+    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.UserService" p:demoStr = "abc">
     </bean>
 
-    <bean id="petStore" class="com.neo.springexamples.ioc.pojo.PetStoreServiceImpl">
-        <property name="accountDao" ref="accountDao"/>
+    <!-- 通过类型自动注入，如果有多个候选者类，则可以通过primary指定由谁来注入，如果不选，则会抛出异常 -->
+    <bean id="petStore" class="com.neo.springexamples.ioc.pojo.PetStoreServiceImpl" autowire="byType">
+        <!--<property name="accountDao" ref="accountDao"/>-->
         <property name="itemDao" ref="itemDao"/>
-        <!-- additional collaborators and configuration for this bean go here -->
     </bean>
 
     <!-- more bean definitions for services go here -->

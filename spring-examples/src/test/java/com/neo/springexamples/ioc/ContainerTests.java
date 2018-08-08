@@ -1,8 +1,10 @@
 package com.neo.springexamples.ioc;
 
+import com.neo.springexamples.ioc.pojo.JpaItemDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -36,7 +38,11 @@ public class ContainerTests {
         ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
         PetStoreServiceImpl petStore = context.getBean("petStore", PetStoreServiceImpl.class);
         JpaAccountDao accountDao = context.getBean("accountDao", JpaAccountDao.class);
+        JpaItemDao itemDao = context.getBean("itemDao", JpaItemDao.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        System.out.println(beanDefinitionNames);
         Assert.assertEquals(petStore.getAccountDao(), accountDao);
+        Assert.assertEquals(petStore.getItemDao(), itemDao);
     }
 
     @Test
@@ -44,6 +50,29 @@ public class ContainerTests {
         GenericApplicationContext genericApplicationContext = new GenericApplicationContext();
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(
             genericApplicationContext);
+    }
+
+    @Test
+    public void test04() {
+
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+
+        // add a shutdown hook for the above context...
+        ctx.registerShutdownHook();
+
+        ctx.stop();
+
+    }
+
+    /**
+     * 自动注入ApplicationContext
+     */
+    @Test
+    public void test05() {
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("services.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.testApplicationContext();
     }
 
 }
