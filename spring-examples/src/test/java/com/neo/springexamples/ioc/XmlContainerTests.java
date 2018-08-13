@@ -1,7 +1,7 @@
 package com.neo.springexamples.ioc;
 
 import com.google.gson.Gson;
-import com.neo.springexamples.ioc.pojo.*;
+import com.neo.springexamples.ioc.pojo.xml.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
-public class ContainerTests {
+public class XmlContainerTests {
 
     /**
      * only基于spring-beans命名空间 XML形式的 beanDefinition
@@ -82,8 +82,8 @@ public class ContainerTests {
     @Test
     public void test07() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("processor.xml");
-        UserService messenger = (UserService) ctx.getBean("userService");
-        System.out.println(messenger);
+        ProcessorDemoBean messenger = (ProcessorDemoBean) ctx.getBean("processorDemoBean");
+        Assert.assertEquals("property",messenger.getPropertyOne());
     }
 
 }

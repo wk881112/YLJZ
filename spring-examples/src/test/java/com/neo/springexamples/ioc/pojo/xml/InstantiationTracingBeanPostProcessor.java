@@ -1,4 +1,4 @@
-package com.neo.springexamples.ioc.pojo;
+package com.neo.springexamples.ioc.pojo.xml;
 
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
@@ -12,6 +12,8 @@ public class InstantiationTracingBeanPostProcessor implements BeanPostProcessor 
 
     public Object postProcessAfterInitialization(Object bean, String beanName) {
         System.out.println("Bean '" + beanName + "' created : " + bean.toString());
-        return bean;
+        ProcessorDemoBean bean1 =  (ProcessorDemoBean) bean;
+        bean1.setPropertyOne("test1");
+        return bean1;
     }
 }
