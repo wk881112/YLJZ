@@ -37,8 +37,7 @@ public class BeanFactoryTest {
     public void test2() {
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(factory);
-        Resource resource = new ClassPathResource("beanFactory.xml");
-        xmlBeanDefinitionReader.loadBeanDefinitions(resource);
+        xmlBeanDefinitionReader.loadBeanDefinitions("beanFactory.xml");
         String id = "demoBean";
         String[] demoBeans = factory.getAliases(id);
 
