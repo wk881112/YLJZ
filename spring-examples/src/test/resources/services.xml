@@ -13,23 +13,23 @@
             <property name="demoStr" value="abc"/>
         </bean>-->
     <!-- 使用p-namespace -->
-    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.pojo.xml.UserService" p:demoStr = "abc">
+    <bean id="userService" name="userServiceName" class="com.neo.springexamples.ioc.context.pojo.xml.UserService" p:demoStr = "abc">
     </bean>
 
     <!-- 通过类型自动注入，如果有多个候选者类，则可以通过primary指定由谁来注入，如果不选，则会抛出异常 -->
-    <bean id="petStore" class="com.neo.springexamples.ioc.pojo.xml.PetStoreServiceImpl" autowire="byType">
+    <bean id="petStore" class="com.neo.springexamples.ioc.context.pojo.xml.PetStoreServiceImpl" autowire="byType">
         <!--<property name="accountDao" ref="accountDao"/>-->
         <property name="itemDao" ref="itemDao"/>
     </bean>
 
     <bean id="inheritedTestBean" abstract="true"
-          class="com.neo.springexamples.ioc.pojo.xml.ParentDemo">
+          class="com.neo.springexamples.ioc.context.pojo.xml.ParentDemo">
         <property name="name" value="parent"/>
         <property name="age" value="1"/>
     </bean>
 
     <bean id="inheritsWithDifferentClass"
-          class="com.neo.springexamples.ioc.pojo.xml.ChildDemo"
+          class="com.neo.springexamples.ioc.context.pojo.xml.ChildDemo"
           parent="inheritedTestBean" init-method="init"
     lazy-init="false">
         <!--<property name="name" value="override"/>-->

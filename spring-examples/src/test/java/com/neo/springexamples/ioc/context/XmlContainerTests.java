@@ -1,13 +1,14 @@
-package com.neo.springexamples.ioc;
+package com.neo.springexamples.ioc.context;
 
-import com.google.gson.Gson;
-import com.neo.springexamples.ioc.pojo.xml.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+
+import com.google.gson.Gson;
+import com.neo.springexamples.ioc.context.pojo.xml.*;
 
 public class XmlContainerTests {
 
@@ -52,7 +53,8 @@ public class XmlContainerTests {
     @Test
     public void test04() {
 
-        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("services.xml",
+            "daos.xml");
 
         // add a shutdown hook for the above context...
         ctx.registerShutdownHook();
@@ -83,7 +85,7 @@ public class XmlContainerTests {
     public void test07() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("processor.xml");
         ProcessorDemoBean messenger = (ProcessorDemoBean) ctx.getBean("processorDemoBean");
-        Assert.assertEquals("property",messenger.getPropertyOne());
+        Assert.assertEquals("property", messenger.getPropertyOne());
     }
 
 }

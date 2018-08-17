@@ -1,4 +1,4 @@
-package com.neo.springexamples.ioc.pojo.xml;
+package com.neo.springexamples.ioc.context.pojo.xml;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

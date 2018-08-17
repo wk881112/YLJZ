@@ -1,10 +1,8 @@
-package com.neo.springexamples.ioc;
+package com.neo.springexamples.ioc.context;
 
 import com.google.gson.Gson;
-import com.neo.springexamples.ioc.pojo.annotation.AppService;
-import com.neo.springexamples.ioc.pojo.annotation.TestDemo;
-import com.neo.springexamples.ioc.pojo.annotation.UserService;
-import com.neo.springexamples.ioc.pojo.annotation.Wether;
+import com.neo.springexamples.ioc.context.pojo.annotation.AppService;
+import com.neo.springexamples.ioc.context.pojo.annotation.Wether;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

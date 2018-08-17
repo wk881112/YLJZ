@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/lang
         http://www.springframework.org/schema/lang/spring-lang.xsd">
 
-    <bean id="processorDemoBean" name="processorDemoBean" class="com.neo.springexamples.ioc.pojo.xml.ProcessorDemoBean"
+    <bean id="processorDemoBean" name="processorDemoBean" class="com.neo.springexamples.ioc.context.pojo.xml.ProcessorDemoBean"
     init-method="doInit">
         <property name="propertyOne" value="property"/>
     </bean>
@@ -16,6 +16,6 @@
     when the above bean (messenger) is instantiated, this custom
     BeanPostProcessor implementation will output the fact to the system console
     -->
-    <bean id="pro" class="com.neo.springexamples.ioc.pojo.xml.InstantiationTracingBeanPostProcessor"/>
+    <bean id="pro" class="com.neo.springexamples.ioc.context.pojo.xml.InstantiationTracingBeanPostProcessor"/>
 
 </beans>

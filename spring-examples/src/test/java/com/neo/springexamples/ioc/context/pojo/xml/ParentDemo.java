@@ -1,4 +1,4 @@
-package com.neo.springexamples.ioc.pojo.xml;
+package com.neo.springexamples.ioc.context.pojo.xml;
 
 public class ParentDemo {
     private String name;

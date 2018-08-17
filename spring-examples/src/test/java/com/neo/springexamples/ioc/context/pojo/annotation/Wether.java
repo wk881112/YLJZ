@@ -1,4 +1,4 @@
-package com.neo.springexamples.ioc.pojo.annotation;
+package com.neo.springexamples.ioc.context.pojo.annotation;
 
 import org.springframework.stereotype.Component;
 
