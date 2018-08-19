@@ -3,7 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="demoBean" name="demoBean1,demoBean2" class="com.neo.springexamples.ioc.beanFactory.pojo.DemoBean"/>
+    <bean id="demoBean" name="demoBean1,demoBean2" class="com.neo.springexamples.ioc.beanFactory.pojo.DemoBean" parent="anotherBean"></bean>
 
     <bean id="anotherBean" name="anotherBean,anotherBean,anotherBean,anotherBean" class="com.neo.springexamples.ioc.beanFactory.pojo.AnotherDemoBean"/>
 </beans>
