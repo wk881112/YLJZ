@@ -3,7 +3,16 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="demoBean" name="demoBean1,demoBean2" class="com.neo.springexamples.ioc.beanFactory.pojo.DemoBean" parent="anotherBean"></bean>
 
-    <bean id="anotherBean" name="anotherBean,anotherBean,anotherBean,anotherBean" class="com.neo.springexamples.ioc.beanFactory.pojo.AnotherDemoBean"/>
+    <!-- import的导入位置对装配bean有影响，后面的bean定义会在该import后执行，同理，如果import在本配置的末尾，则最后执行import配置里的内容 -->
+    <import resource="beanFactory2.xml"/>
+
+    <bean id="demoBean" name="demoBean1,demoBean2" class="com.neo.springexamples.ioc.beanFactory.pojo.DemoBean">
+    </bean>
+
+    <bean id="lfDemoBean" class="com.neo.springexamples.ioc.beanFactory.pojo.LifecycleDemoBean" init-method="init"
+          destroy-method="destroy">
+        <property name="demoProperty" value="demoProperty"></property>
+    </bean>
+
 </beans>
