@@ -98,7 +98,6 @@ public class BeanFactoryTest {
     public void test4() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
             "beanFactory.xml");
-        context.getBean("");
         context.destroy();
     }
 

@@ -88,4 +88,22 @@ public class XmlContainerTests {
         Assert.assertEquals("property", messenger.getPropertyOne());
     }
 
+    @Test
+    public void test08()
+    {
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("processor.xml");
+//        ctx.destroy();
+
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ctx.stop();
+//
+//        ctx.start();
+
+    }
+
 }
