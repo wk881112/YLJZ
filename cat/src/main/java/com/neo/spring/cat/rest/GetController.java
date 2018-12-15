@@ -1,4 +1,4 @@
-package com.neo.spring.rest;
+package com.neo.spring.cat.rest;
 
 import java.util.UUID;
 
